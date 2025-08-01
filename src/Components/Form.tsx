@@ -1,5 +1,19 @@
+import { categories } from '../data/categories'
+
 export default function Form() {
   return (
-    <div>Form</div>
+    <form className="space-y-5 bg-white shadow p-10 rounded-lg">
+        <div className="grid grid-cols-1 gap-3">
+            <label htmlFor="category">Categoria:</label>
+
+            <select id="category" className="border border-slate-300 rounded-lg w-full bg-white p-2 text-slate-700">
+                {categories.map((category) => (
+                    <option key={category.id} value={category.id}>
+                        {category.name}
+                    </option>
+                ))}
+            </select>
+        </div>
+    </form>
   )
 }
