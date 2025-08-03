@@ -1,8 +1,9 @@
 import { useState, type ChangeEvent } from 'react'
 import { categories } from '../data/categories'
+import type { Activity } from '../types'
 
 export default function Form() {
-  const [activity, setActivity] = useState({
+  const [activity, setActivity] = useState<Activity>({
     category: 2,
     name: '',
     calories: 0
