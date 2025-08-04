@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { categories } from '../data/categories'
 import type { Activity } from '../types'
 
@@ -25,8 +25,16 @@ export default function Form() {
     return name.trim() !== '' && calories > 0
   }
 
+  const handleSubmit = (e : FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log("Submit...")
+  }
+
   return (
-    <form className="space-y-5 bg-white shadow p-10 rounded-lg">
+    <form 
+      className="space-y-5 bg-white shadow p-10 rounded-lg"
+      onSubmit={handleSubmit}
+      >
         <div className="grid grid-cols-1 gap-3">
             <label htmlFor="category" className='font-bold'>Categoria:</label>
 
@@ -70,7 +78,7 @@ export default function Form() {
         <input 
           type="submit" 
           className="bg-lime-500 hover:bg-lime-600 w-full font-bold uppercase text-white px-5 py-2 rounded-lg cursor-pointer disabled:opacity-50 transition-all" 
-          value="Guardar Comida o Guardar Ejercicio"
+          value={activity.category === 1 ? 'Agregar Comida' : 'Agregar Ejercicio'}
           disabled={!isValidActivity()}
         />
     </form>
