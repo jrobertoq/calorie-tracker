@@ -1,6 +1,11 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react'
+import { useState, type ChangeEvent, type Dispatch, type FormEvent } from 'react'
 import { categories } from '../data/categories'
 import type { Activity } from '../types'
+
+type FormProps = {
+  state: any
+  dispatch: Dispatch<ActivityActions>
+}
 
 export default function Form() {
   const [activity, setActivity] = useState<Activity>({
