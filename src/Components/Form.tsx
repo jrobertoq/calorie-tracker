@@ -8,12 +8,14 @@ type FormProps = {
   dispatch: Dispatch<ActivityActions>
 }
 
+const initialState = {
+  category: 1,
+  name: '',
+  calories: 0
+}
+
 export default function Form({ dispatch }: FormProps) {
-  const [activity, setActivity] = useState<Activity>({
-    category: 2,
-    name: '',
-    calories: 0
-  })
+  const [activity, setActivity] = useState<Activity>(initialState)
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLInputElement>) => {
     const isNumberField = ['category', 'calories'].includes(e.target.id)
@@ -38,6 +40,8 @@ export default function Form({ dispatch }: FormProps) {
       type: 'save-activity',
       payload: { newActivity: activity }
     })
+
+    setActivity(initialState)
   }
 
   return (
