@@ -45,8 +45,8 @@ export default function Form({ dispatch }: FormProps) {
 
     setActivity({ 
       ...initialState,
-      id: uuidv4() 
-  })
+      id: uuidv4()
+    })
   }
 
   return (
