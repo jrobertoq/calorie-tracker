@@ -5,9 +5,7 @@ import ActivityList from './components/ActivityList'
 
 function App() {
 
-  const [state, dispatch] = useReducer(activityReducer, initialState)
-
-  console.log(state)  
+  const [state, dispatch] = useReducer(activityReducer, initialState)  
 
   return (
     <>
@@ -28,7 +26,8 @@ function App() {
       </section>
 
       <section className='p-10 mx-auto max-w-4xl'>
-        <ActivityList />
+        <ActivityList
+          activities={state.activities} />
       </section>
     </>
   )
