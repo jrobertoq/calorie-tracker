@@ -30,8 +30,6 @@ export default function Form({ dispatch }: FormProps) {
 
   const isValidActivity = () => {
     const { name, calories } = activity
-    console.log(name, calories)
-    console.log(name.trim() !== '' && calories > 0)
     return name.trim() !== '' && calories > 0
   }
 
